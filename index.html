@@ -2,25 +2,331 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  	<meta charset="utf-8">
 
-  <title>Money put where?</title>
-  <meta name="description" content="Be calculative!">
-  <meta name="author" content="Serene Yeo">
+  	<title>Money put where?</title>
+  	<meta name="description" content="Be calculative!">
+  	<meta name="author" content="Serene Yeo">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  	<link rel="stylesheet" href="css/styles.css?v=1.0">
 
+<style>
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[type=number]{
+	height: 40px;
+	width: 90%;
+	padding: 8px 8px;
+	font-size: 14px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	-webkit-bored-radius: 5px;
+	border-radius: 5px;
+	outline: none;
+	vertical-align: top; 
+}
+
+input[type=number]:focus {
+	border: 2px solid #555;
+}
+
+h1 {
+line-height: 10px;
+} 
+
+span.a {
+    display: block;
+    width: 86%;
+    padding: 5px;
+	font-size: 12px;
+    -webkit-bored-radius: 5px;
+	border-radius: 5px;        
+    background-color: #eee;
+	font-family: "Lucida Console", Monaco, monospace;
+	vertical-align: top;
+}
+
+.wrapper {
+  	display: grid;
+  	grid-template-columns: repeat(5, 1fr);
+  	grid-gap: 10px;
+  	grid-template-rows: repeat(13, 80px);
+}
+.title {
+	grid-column: 1 / 6;
+  	grid-row: 1;
+	width: 240px;
+	position: fixed;
+	left: 10px;
+	background: #ffffff;
+}
+.disclaimer {
+  	grid-column: 2 / 6;
+  	grid-row: 1 / 4;
+	font-size: 14px;
+}
+.question {
+  	grid-column: 2 / 6;
+  	grid-row: 4;
+}
+.instructions {
+  	grid-column: 2 / 6;
+  	grid-row: 5;
+}
+.salary {
+  	grid-column: 2;
+  	grid-row: 6 / 8;
+}
+.cc {
+  	grid-column: 3;
+  	grid-row: 6 / 8;
+}
+.insure {
+	grid-column: 4;
+	grid-row: 6 / 8;
+}
+.invest {
+	grid-column: 5;
+	grid-row: 6 / 8;
+}
+.loan {
+	grid-column: 2;
+	grid-row: 8 / 10;
+}
+.increase {
+	grid-column: 3;
+	grid-row: 8 / 10 ;
+}
+.giro {
+	grid-column: 4;
+	grid-row: 8 / 10; 
+}
+.comments {
+	grid-column: 2 / 6;
+	grid-row: 11 / 12;
+}
+.results {
+	grid-column: 2 / 4;
+	grid-row: 13;
+}
+
+.sidenav {
+	grid-column: 1;
+	grid-row: 2 / 12;
+	top: 90px;
+	width: 240px;
+	position: fixed;
+	left: 10px;
+	background: #eee;
+	overflow-x: hidden;
+	padding: 4px 10px 4px 10px;
+	font-size: 14px;
+	color: #696969;
+	-webkit-bored-radius: 10px;
+	border-radius: 10px;
+}
+
+.sidenav a {
+	<!-- padding: 6px 8px 6px 16px; -->
+	text-decoration: none;
+	font-size: 14px;
+	color: #696969;
+	display: block;
+}
+
+.sidenav a:hover{
+	color: #064579;
+}
+
+</style>
 </head>
 
 <body>
-  <!--<script src="js/scripts.js"></script> -->
-Hello world!
 
-<form oninput="x.value=parseInt(salary.value)*(parseInt(salary.value)+1)/2">
-    x = <input type="text" name="salary" placeholder="fill here"/>
+<div class="wrapper">
+<div class="sidenav">
+	<p align="justify"> This calculator app is meant to help several groups of 
+	people -- those who just began their savings journey, those who are too lazy 
+	or find it too troublesome to do comparisons, those who need cash assets 
+    liquidity and of course, many others who may possible find this app
+    useful in one way or another.
+	</p>
+	<p align="justify"> Its purpose is to help you easily and quickly visualize 
+	which is the best allocation of money across the savings accounts in Singapore 
+	that has one of the highest interest rates, namely <a href="https://www.dbs.com.sg/
+	personal/landing/dbs-multiplier/" style="display: inline">  <b>DBS Multiplier</b></a>, 
+	<a href="https://www.ocbc.com/personal-banking/accounts/360-account-cpa1.html" 
+	style="display: inline"> <b> OCBC 360</b></a> and  
+	<a href="https://www.uob.com.sg/personal/save/chequeing/one-account.page"
+	style="display: inline"> <b> UOB One</b></a> based on the criteria that
+	you can fulfill.
+	</p>
+	<p align="justify"> Unfortunately, things don't come free. These banks often 
+	require you to fulfill some stated criteria, so be sure to check them out
+	properly.
+	</p>
+	<p align="justify"> Once again, this tool is nowhere near perfect, as it makes
+	its fair share of assumptions.	
+	</p>
+	<p align="justify"> With no further matters, <strong>ENJOY</strong>!
+	</p>
+	
+	<img src="https://github.com/yeoserene/moneyputwhere/blob/master/www/cat.jpg"> 
+	<!--height="200" width="250" style="text-align: center"-->
+</div>
+
+<div class="title">
+<h1>Be calculative.</h1>
+<h5 style="display: inline">Creator: Serene Yeo</h5>
+</div>
+
+<div class="disclaimer">
+	<br><br><br><br>
+	<h3>Disclaimer:</h3>
+	<p>This is solely meant as a personal exploratory project and it
+	exists for your convenience.
+	You are to rely on the results at your own risk. The creator will not under any 
+	circumstances accept responsibility or liability for any losses that may arise from a 
+	decision that you may make as a result of using the calculator.
+    </p>
+	<p>Information is accurate as of 13 Oct '18 23:45.</p>
+    <p>
+	The rates used in the interest computation from OCBC360 account are the rates that will 
+	take effect from 1 Nov '18.
+    <br><br>
+	Please do note that there will be some slight differences 
+	(approximately a few cents to a few dollars off) with the amount you may get from the 
+	interest calculators at the respective bank websites. This is due to some rounding off 
+	errors and also the fact that interests are computed in a more sophisticated way (average 
+	end-day balance etc.) in actual.</b>
+	</p>
+</div>
+
+<div class="question">
+	<h2 style="display: inline">How much savings (S$) do you have now?</h2>
+	<form>
+		<input type="number" id="savings" name="savings" value=10000>
+	</form>	
+<!--
+	<form oninput="x.value=parseInt(salary)">
+    <input type="text" name="salary" placeholder="fill here"/>
     <br>
     x * (x-1) / 2 = x choose 2 =
     <output name="x" for="salary salary"></output>
 </form>
+-->
+</div>
+
+<div class="instructions">
+	<h2 style="display: inline">Let us also find out what are some of the requirements that you
+	 can meet before we provide you with the recommendations :)</h2>
+    <br>
+	<h5 style="display: inline"> We would require you to fill in the following figures (S$) for
+	each category that you can contribute to every month. You should leave the input as S$0 if 
+	you do not transact in that category.</h5>
+</div>
+
+<div class="salary">
+	<br><br>
+	<form>
+		<label for="salary"><b>Salary through GIRO</b></label>
+		<br>
+		<input width=90% type="number" id="salary" name="salary" value=0>
+	</form>
+	
+	<span class="a"> DBS: no minimum <br> OCBC: minimum $2000 <br> UOB: no minimum <br></span>	
+</div>
+
+<div class="cc">
+	<br><br>
+	<form>
+		<label for="cc"><b>Credit card spending</b></label>
+		<br>
+		<input width=90% type="number" id="cc" name="cc" value=0>
+	</form>
+	
+	<span class="a"> DBS: no minimum <br> OCBC: minimum $500 <br> UOB: minimum $500 on selected 
+	cards only <br></span>	
+</div>
+
+<div class="insure">
+	<br><br>
+	<form>
+		<label for="insure"><b>Insurance with banks</b></label>
+		<br>
+		<input width=90% type="number" id="insure" name="insure" value=0>
+	</form>
+	
+	<span class="a"> Applicable to DBS and OCBC only.<br> 
+	DBS: Selected policies only. <br> OCBC: Selected policies only. Extra 0.6% to 1.2% interest
+	only valid for first 12 months. <br> *Please check the respective websites.</span>	
+</div>
+
+<div class="invest">
+	<br><br>
+	<form>
+		<label for="invest"><b>Investments with banks</b></label>
+		<br>
+		<input width=90% type="number" id="invest" name="invest" value=0>
+	</form>
+	
+	<span class="a"> Applicable to DBS and OCBC only.<br> 
+	DBS: Dividends, unit trusts, equities traded on DBS platforms <br> 
+	OCBC: Selected policies only. Extra 0.6% to 1.2% interest
+	only valid for first 12 months. <br> *Please check the respective websites.</span>	
+</div>
+
+<div class="loan">
+	<br><br><br><br>
+	<form>
+		<label for="loan"><b>Bank housing loan</b></label>
+		<br>
+		<input width=90% type="number" id="loan", name="loan" value=0>
+	</form>
+
+	<span class="a"> Applicable to DBS only. </span>	
+</div>
+
+<div class="increase">
+	<br><br><br><br>
+	<form>
+		<label for="increase"><b>Increasing your monthly balance?</b></label>
+		<br>
+		<input width=90% type="number" id="increase", name="increase" value=0>
+	</form>
+
+	<span class="a"> Applicable to OCBC only.<br> All increase: 1.0% on the interest
+	itself. <br> At least $500 increase: extra 0.3-0.6% </span>	
+</div>
+
+<div class="giro">
+	<br><br><br><br>
+	<form>
+		<label for="giro"><b>3 GIRO arrangements</b></label>
+		<br>
+		<input type="radio" name="giro" value="yes">Yes<br>
+		<input type="radio" name="giro" value="no">No<br>
+	</form>
+	<br>
+	<span class="a"> Applicable to UOB only. </span>	
+</div>
+
+<div class = "comments">
+	<h2 style="display: inline">Now, this is the estimated monthly interest (S$) you'll be getting.</h3>
+    <br><h5 style= "display: inline">
+	As we have mentioned before, and as a friendly reminder, this is purely just an estimated monthly amount 
+          (total interest per year/12) which differs slightly from the computation done by banks as their interests 
+          are computed on a daily basis.</h5>
+    <br><br><h5 style="display: inline">
+	There are guaranteed cashbacks on the credit cards that you use at various banks, that are EXCLUDED from
+          this computation. This is because there are just too many different rebates schemes for all the available
+          credit cards. For example, spending $500 on the UOB One card monthly gets you $200 annual interest but 
+          this piece of information is not included in the figures presented to you below.</h5>
+</div>
 </body>
 </html>
