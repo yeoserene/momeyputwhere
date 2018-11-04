@@ -449,6 +449,16 @@ span.a {
 
 <script>
 
+// Add onchange listeners for input boxes
+document.getElementById("savings").onchange = function() { refresh(); }
+document.getElementById("salary").onchange = function() { refresh(); }
+document.getElementById("cc").onchange = function() { refresh(); }
+document.getElementById("insure").onchange = function() { refresh(); }
+document.getElementById("invest").onchange = function() { refresh(); }
+document.getElementById("loan").onchange = function() { refresh(); }
+document.getElementById("increase").onchange = function() { refresh(); }
+document.getElementById("giro").onchange = function() { refresh(); }
+
 function refresh(){
 	document.getElementById("dbs").innerHTML = compute_dbs();
 	document.getElementById("ocbc").innerHTML = compute_ocbc();
