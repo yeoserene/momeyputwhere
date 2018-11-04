@@ -10,10 +10,56 @@
 <meta name="author" content="Serene Yeo">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <style>
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #FFCC00;
+}
+
+.button1:hover {
+    background-color: #FFCC00;
+    color: white;
+}
+
+input[type=text]{
+	height: 40px;
+	width: 90%;
+	padding: 8px 8px;
+	font-size: 14px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	-webkit-bored-radius: 5px;
+	border-radius: 5px;
+	outline: none;
+	vertical-align: top;
+	text-align: left; 
+}
+
+input[type=text]:focus {
+	border: 2px solid #555;
 }
 
 input[type=number]{
@@ -59,7 +105,7 @@ span.a {
   	float: left;
 	display: grid;
 	grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) )
-  	grid-gap: 10px;
+  	grid-gap: 12px;
   	grid-template-rows: repeat(13, auto);
 }
 */
@@ -76,10 +122,23 @@ span.a {
 		display: grid;
 		text-align: justify;
 		grid-template-columns: 100px repeat( auto-fit, minmax(250px, 1fr) )
- 		grid-gap: 10px;
+ 		grid-gap: 12px;
  		grid-template-rows: repeat(13, auto);
 		height: 100vh; 
 	}
+}
+
+.button {
+    background-color: #FFCC00; 
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 .title {
@@ -136,13 +195,38 @@ span.a {
 	grid-row: 11 / 12;
 }
 .results {
-	grid-column: 2 / 6;
+	grid-column: 4;
+	grid-row: 12;
+}
+.resultsop {
+	grid-column: 2 / 4;
+	grid-row: 12;
+	text-align: center;
+}
+
+.suggestions{
+	grid-column: 1;
+	grid-row: 9;
+	float: left;
+	margin: auto;
+	width: 80%;
+	background: #eee;
+	overflow-x: hidden;
+	padding: 6px 10px 6px 10px;
+	font-size: 14px;
+	color: #696969;
+	-webkit-bored-radius: 10px;
+	border-radius: 10px;
+}
+
+.bottom{
+	grid-column: 1;
 	grid-row: 12;
 }
 
 .sidenav {
 	grid-column: 1;
-	grid-row: 1 / 7;
+	grid-row: 1 / 9;
 	float: left;
 	margin: auto;
 	width: 80%;
@@ -182,7 +266,7 @@ span.a {
 	<p align="justify"> This calculator app is meant to help several groups of 
 	people -- those who just began their savings journey, those who are too lazy 
 	or find it too troublesome to do comparisons, those who need cash assets 
-    liquidity and of course, many others who may possible find this app
+    liquidity and of course, many others who may possibly find this app
     useful in one way or another.
 	</p>
 	<p align="justify"> Its purpose is to help you easily and quickly visualize 
@@ -205,8 +289,14 @@ span.a {
 	<p align="justify"> With no further matters, <strong>ENJOY</strong>!
 	</p>
 	
-	<img src="https://github.com/yeoserene/moneyputwhere/blob/master/www/cat.jpg"> 
-	<!--height="200" width="250" style="text-align: center"-->
+	<img style='height: 100%; width: 100%; object-fit: contain'/ src="www/cat.jpg"> 
+</div>
+
+<div class="suggestions">
+	<b> How best to use this tool?: </b><br>
+	I would suggest you to key the entries in, get a good overall feeling about
+	the interest rates you are likely to get, and visit the desired bank's website!
+	Links provided above.
 </div>
 
 <div class="disclaimer">
@@ -217,16 +307,16 @@ span.a {
 	circumstances accept responsibility or liability for any losses that may arise from a 
 	decision that you may make as a result of using the calculator.
     </p>
-	<p>Information is accurate as of 13 Oct '18 23:45.</p>
+	<p> Efforts have been made to optimize the code for screens of various sizes.
+	But, as an amateur, I apologize for any pieces that seem out of place! 
+	</p>
+	<p>Information is accurate as of 04 Nov '18 23:23.</p>
     <p>
-	The rates used in the interest computation from OCBC360 account are the rates that will 
-	take effect from 1 Nov '18.
-    <br><br>
 	Please do note that there will be some slight differences 
-	(approximately a few cents to a few dollars off) with the amount you may get from the 
+	(approximately a few cents [usually for DBS, UOB] to a few dollars off [usually $1-$4 less than actual for OCBC]) with the amount you may get from the 
 	interest calculators at the respective bank websites. This is due to some rounding off 
 	errors and also the fact that interests are computed in a more sophisticated way (average 
-	end-day balance etc.) in actual.</b>
+	end-day balance etc.) in actual. P.S. OCBC's calculations are much more complex!</b>
 	</p>
 </div>
 
@@ -236,14 +326,6 @@ span.a {
 	<form>
 		<input type="number" id="savings" name="savings" step=".01" value=10000>
 	</form>	
-<!--
-	<form oninput="x.value=parseInt(salary)">
-    <input type="text" name="salary" placeholder="fill here"/>
-    <br>
-    x * (x-1) / 2 = x choose 2 =
-    <output name="x" for="salary salary"></output>
-</form>
--->
 	<br>
 </div>
 
@@ -252,50 +334,50 @@ span.a {
 	 can meet before we proceed with the calculations :)</h2>
     <br>
 	<h5 style="display: inline"> We would require you to fill in the following figures (S$) for
-	each category that you can contribute to every month. You should leave the input as S$0 if 
-	you do not transact in that category.</h5>
+	each category that you can contribute to EVERY MONTH. You should leave the input as S$0 if 
+	you do not transact in that category. Remember: DON'T leave any entries blank! </h5>
 </div>
 
 <div class="salary">
 	<br>
 	<form>
-		<label for="salary" float: left><b>Salary through GIRO</b></label>
+		<label for="salary" style="float: left"><b>Salary through GIRO</b></label>
 		<br>
 		<input width=90% type="number" id="salary" name="salary" steps=".01" value=0>
 	</form>
 	
-	<span class="a"> DBS: no minimum <br> OCBC: minimum $2000 <br> UOB: no minimum <br></span>	
+	<span class="a"> DBS: no minimum. <br> OCBC: minimum $2000. <br> UOB: no minimum. <br></span>	
 </div>
 
 <div class="cc">
 	<br>
 	<form>
-		<label for="cc" float: left><b>Credit card spending</b></label>
+		<label for="cc" style="float: left"><b>Credit card spending</b></label>
 		<br>
 		<input width=90% type="number" id="cc" name="cc" steps=".01" value=0>
 	</form>
 	
-	<span class="a"> DBS: no minimum <br> OCBC: minimum $500 <br> UOB: minimum $500 on selected 
-	cards only <br></span>	
+	<span class="a"> DBS: no minimum. <br> OCBC: minimum $500. <br> UOB: minimum $500 on selected 
+	cards only. <br></span>	
 </div>
 
 <div class="insure">
 	<br>
 	<form>
-		<label for="insure" float: left><b>Insurance with banks</b></label>
+		<label for="insure" style="float: left"><b>Insurance with banks</b></label>
 		<br>
 		<input width=90% type="number" id="insure" name="insure" steps=".01" value=0>
 	</form>
 	
 	<span class="a"> Applicable to DBS and OCBC only.<br> 
 	DBS: Selected policies only. <br> OCBC: Selected policies only. Extra 0.6% to 1.2% interest
-	only valid for first 12 months. <br> *Please check the respective websites.</span>	
+	only valid for <b>first 12 months</b>. <br> *Please check the respective websites.</span>	
 </div>
 
 <div class="invest">
 	<br>
 	<form>
-		<label for="invest" float: left><b>Investments with banks</b></label>
+		<label for="invest" style="float: left"><b>Investments with banks</b></label>
 		<br>
 		<input width=90% type="number" id="invest" name="invest" steps=".01" value=0>
 	</form>
@@ -303,13 +385,13 @@ span.a {
 	<span class="a"> Applicable to DBS and OCBC only.<br> 
 	DBS: Dividends, unit trusts, equities traded on DBS platforms <br> 
 	OCBC: Selected policies only. Extra 0.6% to 1.2% interest
-	only valid for first 12 months. <br> *Please check the respective websites.</span>	
+	only valid for <b>first 12 months</b>. <br> *Please check the respective websites.</span>	
 </div>
 
 <div class="loan">
 	<br><br>
 	<form>
-		<label for="loan" float: left><b>Bank housing loan</b></label>
+		<label for="loan" style="float: left"><b>Bank housing loan</b></label>
 		<br>
 		<input width=90% type="number" id="loan", name="loan" steps=".01" value=0>
 	</form>
@@ -320,7 +402,7 @@ span.a {
 <div class="increase">
 	<br><br>
 	<form>
-		<label for="increase" float: left><b>Increasing monthly balance?</b></label>
+		<label for="increase" style="float:left"><b>Increasing monthly balance?</b></label>
 		<br>
 		<input width=90% type="number" id="increase", name="increase" steps=".01" value=0>
 	</form>
@@ -332,13 +414,11 @@ span.a {
 <div class="giro">
 	<br><br>
 	<form>
-		<label for="giro" float: left><b>3 GIRO arrangements</b></label>
-		<br><br>
-		<input type="radio" name="giro" value="yes">Yes<br>
-		<input type="radio" name="giro" value="no">No<br>
+		<label for="giro" style="float:left"><b>3 GIRO arrangements</b></label>
+		<input width=90% type="text" name="giro" id="giro" value="Y">
 	</form>
-	<br>
-	<span class="a"> Applicable to UOB only. </span>	
+
+	<span class="a"> Applicable to UOB only. <br> Kindly type Y for Yes and N for No. </span>	
 </div>
 
 <div class = "comments">
@@ -356,20 +436,23 @@ span.a {
 </div>
 
 <div class = "results">
+	<p><button class="button button1" onclick="refresh()">Compare (again)!</button></p>
+</div>
+
+<div class = "resultsop">
 	<br>
-	<button id="say"> Compare! </button>
-	document.getElementById("say").addEventListener("click", compute_all);
+	The monthly interest at <b>DBS</b> is <b>S$ <p id="dbs" style="display:inline"></p></b>.<br>
+	The monthly interest at <b>OCBC</b> is <b>S$ <p id="ocbc" style="display:inline"></p></b>.<br>
+	The monthly interest at <b>UOB</b> is <b>S$ <p id="uob" style="display:inline"></p></b>.<br>
+	<br>
 </div>
 
 <script>
-function compute_all(){
-	var dbs = document.getElementByID("dbs").value;
-	var ocbc = document.getElementById("ocbc").value;
-	var uob = document.getElementById("uob").value;
 
-	var html = 'The monthly interest at <b>DBS</b> is <b>S$' + dbs + '</b>.<br>The monthly interest at <b>OCBC</b> is <b>S$' + ocbc + '</b>.<br>The monthly interest at <b>UOB</b> is <b>S$' + uob + '</b>.<br>';
-	
-	document.getElementById('result').innerHTML = html; 
+function refresh(){
+	document.getElementById("dbs").innerHTML = compute_dbs();
+	document.getElementById("ocbc").innerHTML = compute_ocbc();
+	document.getElementById("uob").innerHTML = compute_uob();
 }
 
 function compute_dbs(){
@@ -440,23 +523,24 @@ function compute_dbs(){
 
 	var total_amount = ir/100*rem + base_ir/100*additional;
 	total_amount = total_amount/12;
-	total_amount = total_amount.toFixed(2)
+	total_amount = total_amount.toFixed(2);
 	
-	document.getElementById("dbs").innerHTML = total_amount;
+	//document.getElementById("dbs").innerHTML = total_amount;
 	return (total_amount)
 }
+document.getElementById("dbs").innerHTML = compute_dbs(); 
 
 function compute_uob(){
 	var salary = parseFloat(document.getElementById('salary').value);
 	var cc = parseFloat(document.getElementById('cc').value);
-	var giro = String(document.getElementById('giro').value);
+	var giro = document.getElementById('giro').value;
 	var savings = parseFloat(document.getElementById('savings').value);
 	var check_num = 0;
 
 	if (salary > 0){
 		check_num += 1;
 	}
-	if (giro == 'Yes'){
+	if (giro == 'Y' || giro == 'y'){
 		check_num += 1;
 	}
 	
@@ -484,9 +568,11 @@ function compute_uob(){
 	int += ir/100*savings;
 	int = int/12;
 	int = int.toFixed(2);
-	document.getElementById("uob").innerHTML = int;
+	//document.getElementById("uob").innerHTML = int;
 	return (int)
 }
+
+document.getElementById("uob").innerHTML = compute_uob();
 
 function compute_ocbc(){
 	var salary = parseFloat(document.getElementById('salary').value);
@@ -501,7 +587,7 @@ function compute_ocbc(){
 		if (savings <= 35000){
 			int += 1.2/100*savings;
 		}else{
-			int += 1.2/100*35000 + 1.5/100*Math.max(savings-35000, 35000);
+			int += 1.2/100*35000 + 1.5/100*Math.min(savings-35000, 35000);
 		}
 	}
 
@@ -509,7 +595,7 @@ function compute_ocbc(){
 		if (savings <= 35000){
 			int += 0.3/100*savings;
 		} else{
-			int += 0.3/100*35000 + 0.6/100*Math.max(savings-35000, 35000);
+			int += 0.3/100*35000 + 0.6/100*Math.min(savings-35000, 35000);
 		}
 	}
 	
@@ -517,7 +603,7 @@ function compute_ocbc(){
 		if (savings <= 35000){
 			int += 0.3/100*savings;
 		}else{
-			int += 0.3/100*35000 + 0.6/100*Math.max(savings-35000, 35000);
+			int += 0.3/100*35000 + 0.6/100*Math.min(savings-35000, 35000);
 		}
 	}
 
@@ -525,7 +611,7 @@ function compute_ocbc(){
 		if (savings <= 35000){
 			int += 0.6/100*savings;
 		}else{
-			int += 0.6/100*35000 + 1.2/100*Math.max(savings-35000, 35000);
+			int += 0.6/100*35000 + 1.2/100*Math.min(savings-35000, 35000);
 		}
 	}
 
@@ -536,20 +622,21 @@ function compute_ocbc(){
 		int += 1.0/100*70000;
 	}
 
-	int = int.toFixed(2);
 	int = int/12;
-	document.getElementById("ocbc").innerHTML = int;
+	int = int.toFixed(2);
+	//document.getElementById("ocbc").innerHTML = int;
 	return (int)
 }
 
+document.getElementById("ocbc").innerHTML = compute_ocbc();
+
 </script>
 
-<div style="background-color:#e5e5e5;text-align:center;padding:10px;width:80%; margin:auto;">© yeoserene.github.io</div>
-
+<div class="bottom">
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;width:80%; margin:auto;">© github.com/yeoserene</div>
 </div>
 
-
-
+</div>
 
 
 </body>
