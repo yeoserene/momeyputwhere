@@ -1,5 +1,3 @@
-# moneyputwhere
-
 # moneyputwhere v0.1:
 
 A simple calculator that:
