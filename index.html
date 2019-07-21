@@ -312,7 +312,7 @@ span.a {
 	interest rates start varying from 1.55%-3.50%. 
 	<br><i> OCBC 360 </i>: As long as you have a minimum of $2000 salary credit, can
 	spend $500 or more on your CC, and can increase your account balance by at least 
-	$500 every month, interest rates start varying from 1.8% on the first $35k to 2.7%
+	$500 every month, interest rates start varying from 1.8% on the first $35k to 3.2%
 	on the next $35k.
 	<br><i> UOB One </i>: As long as you can hit the minimum $500 credit spending
 	<u>EVERY</u> month, with salary credit or 3 GIRO arrangements, interest rates
@@ -329,8 +329,6 @@ span.a {
 
 <div class="disclaimer">
 	<h3>Disclaimer:</h3>
-	<p> Best viewed in Google Chrome. Javascript bugs have been reported on Safari on iOS12,
-	so please do refrain from using it at the moment. </p>
 	<p>This is solely meant as a personal exploratory project and it
 	exists for your convenience.
 	You are to rely on the results at your own risk. The creator will not under any 
@@ -340,7 +338,7 @@ span.a {
 	<p> Efforts have been made to optimize the code for screens of various sizes.
 	But, as an amateur, I apologize for any pieces that seem out of place! 
 	</p>
-	<p>Information is accurate as of 04 Nov '18 23:23 (SGT).</p>
+	<p>Information is accurate as of 20 Jul '19 21:45 (EDT).</p>
     <p>
 	Please do note that there will be some slight differences 
 	(approximately a few cents [usually for DBS, UOB] to a few dollars off [usually $1-$4 less 
@@ -628,7 +626,7 @@ function compute_ocbc(){
 		if (savings <= 35000){
 			int += 1.2/100*savings;
 		}else{
-			int += 1.2/100*35000 + 1.5/100*Math.min(savings-35000, 35000);
+			int += 1.2/100*35000 + 2.0/100*Math.min(savings-35000, 35000);
 		}
 	}
 
