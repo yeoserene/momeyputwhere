@@ -303,30 +303,7 @@ span.a {
 	I would suggest you to key the entries in, get a good overall feeling about
 	the interest rates you are likely to get, and visit the desired bank's website!
 	Links provided.
-	<br><br>
-	<!--
-	<b> Some personal experiences: </b><br> 
-	Sit down and think through what you are able to fulfill. In summary, this is my
-	take on the savings accounts: <br>
-	<i> DBS Multiplier </i>: As long as you can credit your salary and transact in 1
-	or more other categories (CC spending/ loan/ wealth) with a minimum of $2000, 
-	interest rates start varying from 1.55%-3.50%. 
-	<br><i> OCBC 360 </i>: As long as you have a minimum of $2000 salary credit, can
-	spend $500 or more on your CC, and can increase your account balance by at least 
-	$500 every month, interest rates start varying from 1.8% on the first $35k to 3.2%
-	on the next $35k.
-	<br><i> UOB One </i>: As long as you can hit the minimum $500 credit spending
-	<u>EVERY</u> month, with salary credit or 3 GIRO arrangements, interest rates
-	start from 1.85% on the first $15k to 3.88% on the $60k-$75k range! 
-	<br><br>
-	If you have no problems hitting ALL the criteria and have savings of up to $75k,
-	the effective interest rate at OCBC is <b>2.5%</b> on $70k. (wealth excluded from
-	computation as it is only valid for first 12 months), at UOB is 2.436% on $75k. 
-	At DBS,
-	it depends on how much your eligible transactions are per month. If your total
-	eligible transactions amount to $5k-15k with two more categories fulfilled, 
-	interest rate stands at 2.20% on your first $50k.
-	-->
+	<br>
 </div>
 
 <div class="disclaimer">
@@ -692,7 +669,7 @@ function compute_ocbc(){
 	}
 
 	var base_ir = 0.05;
-	int += 1.0/100*Math.min(increase, 10^6) + base_ir/100*savings;
+	int += base_ir/100*savings;
 
 	if (savings >= 200000){
 		int += 0.8/100*70000;
